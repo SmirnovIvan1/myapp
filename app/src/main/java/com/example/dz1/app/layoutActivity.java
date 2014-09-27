@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -19,13 +20,8 @@ public class layoutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mylauout);
+        setContentView(R.layout.mylauout2);
         }
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -33,44 +29,22 @@ public class layoutActivity extends Activity {
         getMenuInflater().inflate(R.menu.layoutmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onMenuItemSelected(int featuredId, MenuItem item) {
-        final RelativeLayout rl = (RelativeLayout)findViewById(R.id.relative);
-        final RelativeLayout rl1 = (RelativeLayout)findViewById(R.id.relative2);
-        final RelativeLayout rl3 = (RelativeLayout)findViewById(R.id.reletive3);
-        final RelativeLayout rl4 = (RelativeLayout)findViewById(R.id.relative4);
-        final RelativeLayout rl5 = (RelativeLayout)findViewById(R.id.reletive5);
-        final RelativeLayout rl6 = (RelativeLayout)findViewById(R.id.reletive6);
-        Random random = new Random();
-        int r = random.nextInt();
-        int g = random.nextInt();
-        int b = random.nextInt();
-        int r1 = random.nextInt();
-        int g1 = random.nextInt();
-        int b1 = random.nextInt();
-        int r3 = random.nextInt();
-        int g3 = random.nextInt();
-        int b3 = random.nextInt();
-        int r4 = random.nextInt();
-        int g4 = random.nextInt();
-        int b4 = random.nextInt();
-        int r5 = random.nextInt();
-        int g5 = random.nextInt();
-        int b5 = random.nextInt();
-        int r6 = random.nextInt();
-        int g6 = random.nextInt();
-        int b6 = random.nextInt();
-        rl.setBackgroundColor(Color.rgb(r,g,b));
-        rl1.setBackgroundColor(Color.rgb(r1,g1,b1));
-        rl3.setBackgroundColor(Color.rgb(r3,g3,b3));
-        rl4.setBackgroundColor(Color.rgb(r4,g4,b4));
-        rl5.setBackgroundColor(Color.rgb(r5,g5,b5));
-        rl6.setBackgroundColor(Color.rgb(r6,g6,b6));
-        switch (item.getItemId()){
-            case R.id.menu1:
-                break;
-
-        }
+      LinearLayout rl = (LinearLayout) findViewById(R.id.linear);
+      LinearLayout rl1 = (LinearLayout) findViewById(R.id.linear1);
+      LinearLayout rl3 = (LinearLayout) findViewById(R.id.linear2);
+      LinearLayout rl4 = (LinearLayout) findViewById(R.id.linear3);
+      LinearLayout rl5 = (LinearLayout) findViewById(R.id.linear4);
+      LinearLayout rl6 = (LinearLayout) findViewById(R.id.linear5);
+        rl.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
+        rl1.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
+        rl3.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
+        rl4.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
+        rl5.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
+        rl6.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
         return super.onMenuItemSelected(featuredId, item);
+
     }
 }
