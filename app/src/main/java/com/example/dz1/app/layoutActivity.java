@@ -5,11 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -17,10 +12,13 @@ import java.util.Random;
  * Created by ivan on 23.09.14.
  */
 public class layoutActivity extends Activity {
+    Random rand;
+    int[] layouts = {R.id.linear1, R.id.linear2, R.id.linear, R.id.linear3,R.id.linear4, R.id.linear5};
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mylauout2);
+        rand = new Random();
         }
 
     @Override
@@ -30,21 +28,22 @@ public class layoutActivity extends Activity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public void updateColors() {
+
+        for(int layoutId : layouts){
+         findViewById(layoutId).setBackgroundColor(generateColor());
+        }
+    }
+
+    int generateColor(){
+        return Color.rgb(rand.nextInt(256),rand.nextInt(256),rand.nextInt(256));
+    }
     @Override
     public boolean onMenuItemSelected(int featuredId, MenuItem item) {
-      LinearLayout rl = (LinearLayout) findViewById(R.id.linear);
-      LinearLayout rl1 = (LinearLayout) findViewById(R.id.linear1);
-      LinearLayout rl3 = (LinearLayout) findViewById(R.id.linear2);
-      LinearLayout rl4 = (LinearLayout) findViewById(R.id.linear3);
-      LinearLayout rl5 = (LinearLayout) findViewById(R.id.linear4);
-      LinearLayout rl6 = (LinearLayout) findViewById(R.id.linear5);
-        rl.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        rl1.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        rl3.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        rl4.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        rl5.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        rl6.setBackgroundColor(Color.rgb((int) (Math.random() * 256),(int) (Math.random() * 256),(int) (Math.random() * 256)));
-        return super.onMenuItemSelected(featuredId, item);
+        updateColors();
 
+        return super.onMenuItemSelected(featuredId, item);
     }
+
+
 }
